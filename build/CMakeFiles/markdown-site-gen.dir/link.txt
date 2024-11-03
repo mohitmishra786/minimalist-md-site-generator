@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/markdown-site-gen.dir/src/main.c.o CMakeFiles/markdown-site-gen.dir/src/parser.c.o CMakeFiles/markdown-site-gen.dir/src/renderer.c.o CMakeFiles/markdown-site-gen.dir/src/utils.c.o CMakeFiles/markdown-site-gen.dir/src/config.c.o -o markdown-site-gen  -lcmark 

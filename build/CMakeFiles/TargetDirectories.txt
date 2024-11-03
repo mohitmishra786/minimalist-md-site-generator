@@ -1,0 +1,7 @@
+/home/chessman/Desktop/Projects/Github/minimalist-md-site-generator/build/CMakeFiles/markdown-site-gen.dir
+/home/chessman/Desktop/Projects/Github/minimalist-md-site-generator/build/CMakeFiles/edit_cache.dir
+/home/chessman/Desktop/Projects/Github/minimalist-md-site-generator/build/CMakeFiles/rebuild_cache.dir
+/home/chessman/Desktop/Projects/Github/minimalist-md-site-generator/build/CMakeFiles/list_install_components.dir
+/home/chessman/Desktop/Projects/Github/minimalist-md-site-generator/build/CMakeFiles/install.dir
+/home/chessman/Desktop/Projects/Github/minimalist-md-site-generator/build/CMakeFiles/install/local.dir
+/home/chessman/Desktop/Projects/Github/minimalist-md-site-generator/build/CMakeFiles/install/strip.dir
