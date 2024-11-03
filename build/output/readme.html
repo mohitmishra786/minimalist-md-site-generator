@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>hljs.highlightAll(); mermaid.initialize({startOnLoad:true});</script>
+<style>
+.markdown-table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+.markdown-table th, .markdown-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+.markdown-table th { background-color: #f5f5f5; }
+pre { background-color: #f6f8fa; padding: 16px; border-radius: 6px; overflow: auto; }
+code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+</style>
+</head></head>
+<body>
+    <header>
+        <h1>}</h1>
+        <div class="metadata">
+            <span class="author">By </span>
+            <span class="date">Published on </span>
+        </div>
+    </header>
+    <main>
+        <h1>Reversing Bits Cheatsheets</h1>
+<p>Welcome to the <strong>Reversing Bits Cheatsheets</strong> repository! This collection provides comprehensive guides on various tools essential for assembly programming, reverse engineering, and binary analysis. Each cheatsheet offers installation instructions, usage examples, and advanced tips for different operating systems.</p>
+<p><strong>Website:</strong> https://mohitmishra786.github.io/reversingBits/</p>
+<h2>Tools Included</h2>
+<h3>Assembly &amp; Basic Analysis</h3>
+<ul>
+<li><strong><a href="src/nasm.md">NASM</a></strong>: A popular assembler for the x86 and x86-64 architectures.</li>
+<li><strong><a href="src/gas.md">GAS</a></strong>: GNU Assembler, part of the GNU Binutils project, used for assembling AT&amp;T syntax assembly.</li>
+<li><strong><a href="src/objdump.md">objdump</a></strong>: A powerful tool for displaying information about object files.</li>
+<li><strong><a href="src/hexdump.md">Hexdump</a></strong>: Used to display or dump binary data in hexadecimal format.</li>
+<li><strong><a href="src/strings.md">strings</a></strong>: Extracts printable strings from files, useful for quick analysis.</li>
+<li><strong><a href="src/file.md">file</a></strong>: Determines file type by examining its contents.</li>
+<li><strong><a href="src/nm.md">nm</a></strong>: Lists symbols from object files.</li>
+<li><strong><a href="src/readelf.md">readelf</a></strong>: Displays information about ELF (Executable and Linkable Format) files.</li>
+</ul>
+<h3>Debuggers &amp; Dynamic Analysis</h3>
+<ul>
+<li><strong><a href="src/gdb.md">GDB</a></strong>: The GNU Debugger for debugging programs at the source or assembly level.</li>
+<li><strong><a href="src/ollydbg.md">OllyDbg</a></strong>: A 32-bit assembler level debugger for Windows.</li>
+<li><strong><a href="src/windbg.md">WinDbg</a></strong>: Microsoft's debugger for Windows applications.</li>
+<li><strong><a href="src/qemu.md">QEMU</a></strong>: Emulator and virtualizer for cross-platform analysis.</li>
+<li><strong><a href="src/valgrind.md">Valgrind</a></strong>: Tool suite for debugging and profiling Linux programs.</li>
+<li><strong><a href="src/unicorn.md">Unicorn</a></strong>: Lightweight, multi-platform CPU emulator framework.</li>
+</ul>
+<h3>Disassemblers &amp; Decompilers</h3>
+<ul>
+<li><strong><a href="src/idapro.md">IDA Pro</a></strong>: Industry-standard disassembler and debugger.</li>
+<li><strong><a href="src/ghidra.md">Ghidra</a></strong>: NSA's software reverse engineering suite.</li>
+<li><strong><a href="src/binaryninja.md">Binary Ninja</a></strong>: Modern reverse engineering platform.</li>
+<li><strong><a href="src/hopper.md">Hopper</a></strong>: Reverse engineering tool for macOS and Linux.</li>
+<li><strong><a href="src/retdec.md">RetDec</a></strong>: Retargetable machine-code decompiler.</li>
+<li><strong><a href="src/radare2.md">Radare2</a></strong>: Complete framework for reverse-engineering.</li>
+<li><strong><a href="src/rizin.md">Rizin</a></strong>: Fork of radare2 with enhanced features.</li>
+</ul>
+<h3>Binary Analysis Frameworks</h3>
+<ul>
+<li><strong><a href="src/angr.md">Angr</a></strong>: Python framework for binary analysis.</li>
+<li><strong><a href="src/bap.md">BAP</a></strong>: Binary Analysis Platform for reverse engineering.</li>
+<li><strong><a href="src/capstone.md">Capstone</a></strong>: Lightweight multi-architecture disassembly framework.</li>
+<li><strong><a href="src/dyninst.md">Dyninst</a></strong>: Binary instrumentation and analysis library.</li>
+<li><strong><a href="src/frida.md">Frida</a></strong>: Dynamic instrumentation toolkit.</li>
+<li><strong><a href="src/pin.md">PIN</a></strong>: Intel's dynamic binary instrumentation framework.</li>
+</ul>
+<h3>Malware Analysis &amp; Security</h3>
+<ul>
+<li><strong><a href="src/yara.md">YARA</a></strong>: Pattern matching tool for malware analysis.</li>
+<li><strong><a href="src/zynamics.md">Zynamics</a></strong>: Binary difference analysis tools.</li>
+<li><strong><a href="src/intelXed.md">Intel XED</a></strong>: X86 encoder decoder library.</li>
+<li><strong><a href="src/spike.md">Spike</a></strong>: Network protocol fuzzer.</li>
+<li><strong><a href="src/freedom.md">FrEEdom</a></strong>: Binary analysis framework.</li>
+<li><strong><a href="src/diaphora.md">Diaphora</a></strong>: Advanced binary diffing tool for IDA Pro.</li>
+</ul>
+<h2>How to Use</h2>
+<ul>
+<li><strong>Installation</strong>: Follow the OS-specific instructions in each cheatsheet for tool installation.</li>
+<li><strong>Usage</strong>: Each file contains usage examples, common commands, and advanced tips.</li>
+<li><strong>Contributing</strong>: If you have improvements or additional tools to add, please fork the repository, make your changes, and submit a pull request.</li>
+</ul>
+<h2>License</h2>
+<p>This repository is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+<h2>Acknowledgements</h2>
+<ul>
+<li>Thanks to the developers and communities behind these tools for their invaluable resources.</li>
+<li>Contributions are always appreciated! Check the <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for guidelines on how to contribute.</li>
+</ul>
+}
+    </main>
+    <footer>
+        <p>Generated with markdown-site-gen</p>
+    </footer>
+</body>
+</html>

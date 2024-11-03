@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>hljs.highlightAll(); mermaid.initialize({startOnLoad:true});</script>
+<style>
+.markdown-table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+.markdown-table th, .markdown-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+.markdown-table th { background-color: #f5f5f5; }
+pre { background-color: #f6f8fa; padding: 16px; border-radius: 6px; overflow: auto; }
+code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+</style>
+</head></head>
+<body>
+    <header>
+        <h1>}</h1>
+        <div class="metadata">
+            <span class="author">By </span>
+            <span class="date">Published on </span>
+        </div>
+    </header>
+    <main>
+        <h1>Valgrind Cheatsheet</h1>
+<h2>Installation Guide</h2>
+<h3>Linux</h3>
+<pre><code class="language-bash"># Debian/Ubuntu
+sudo apt-get install valgrind
+
+# Fedora/RHEL
+sudo dnf install valgrind
+
+# Build from source
+wget https://sourceware.org/pub/valgrind/valgrind-VERSION.tar.bz2
+tar -xjf valgrind-VERSION.tar.bz2
+cd valgrind-VERSION
+./configure
+make
+sudo make install
+</code></pre>
+<h2>Basic Tools and Commands</h2>
+<h3>Memcheck (Memory Error Detector)</h3>
+<p>| Command | Usage | Purpose |<table class="markdown-table">
+<thead>
+<tr>
+<th>---------</th>
+<th>--------</th>
+<th>---------</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--leak-check</code> </td>
+<td><code>valgrind --leak-check=full ./program</code> </td>
+<td>Detailed leak check </td>
+</tr>
+<tr>
+<td><code>--show-reachable</code> </td>
+<td><code>--show-reachable=yes</code> </td>
+<td>Show reachable leaks </td>
+</tr>
+<tr>
+<td><code>--track-origins</code> </td>
+<td><code>--track-origins=yes</code> </td>
+<td>Track uninitialized values </td>
+</tr>
+<tr>
+<td><code>--xml</code> </td>
+<td><code>--xml=yes --xml-file=report.xml</code> </td>
+<td>XML output </td>
+<td></p></td>
+</tr>
+</tbody>
+</table>
+<h3>Cachegrind (Cache Profiler)</h3>
+<p>| Command | Usage | Purpose |<table class="markdown-table">
+<thead>
+<tr>
+<th>---------</th>
+<th>--------</th>
+<th>---------</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cg_annotate</code> </td>
+<td><code>cg_annotate cachegrind.out.pid</code> </td>
+<td>Analyze output </td>
+</tr>
+<tr>
+<td><code>--branch-sim</code> </td>
+<td><code>--branch-sim=yes</code> </td>
+<td>Branch prediction sim </td>
+</tr>
+<tr>
+<td><code>--cache-sim</code> </td>
+<td><code>--cache-sim=yes</code> </td>
+<td>Cache simulation </td>
+<td></p></td>
+</tr>
+</tbody>
+</table>
+<h3>Callgrind (Call Graph Generator)</h3>
+<p>| Command | Usage | Purpose |<table class="markdown-table">
+<thead>
+<tr>
+<th>---------</th>
+<th>--------</th>
+<th>---------</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>callgrind_control</code> </td>
+<td><code>callgrind_control -d</code> </td>
+<td>Dump profile data </td>
+</tr>
+<tr>
+<td><code>callgrind_annotate</code> </td>
+<td><code>callgrind_annotate callgrind.out.pid</code> </td>
+<td>Analyze profile </td>
+</tr>
+<tr>
+<td><code>--dump-instr</code> </td>
+<td><code>--dump-instr=yes</code> </td>
+<td>Dump instruction info </td>
+<td></p></td>
+</tr>
+</tbody>
+</table>
+<h3>Massif (Heap Profiler)</h3>
+<p>| Command | Usage | Purpose |<table class="markdown-table">
+<thead>
+<tr>
+<th>---------</th>
+<th>--------</th>
+<th>---------</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ms_print</code> </td>
+<td><code>ms_print massif.out.pid</code> </td>
+<td>Print heap profile </td>
+</tr>
+<tr>
+<td><code>--heap</code> </td>
+<td><code>--heap=yes</code> </td>
+<td>Profile heap </td>
+</tr>
+<tr>
+<td><code>--detailed-freq</code> </td>
+<td><code>--detailed-freq=10</code> </td>
+<td>Detail frequency </td>
+<td></p></td>
+</tr>
+</tbody>
+</table>
+<h3>Helgrind (Thread Debugger)</h3>
+<p>| Command | Usage | Purpose |<table class="markdown-table">
+<thead>
+<tr>
+<th>---------</th>
+<th>--------</th>
+<th>---------</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--history-level</code> </td>
+<td><code>--history-level=full</code> </td>
+<td>Lock order history </td>
+</tr>
+<tr>
+<td><code>--conflict-cache-size</code> </td>
+<td><code>--conflict-cache-size=2097152</code> </td>
+<td>Cache size </td>
+<td></p></td>
+</tr>
+</tbody>
+</table>
+<h2>Common Options for All Tools</h2>
+<pre><code class="language-bash"># Suppress errors
+--suppressions=supp.file
+
+# Track file descriptors
+--track-fds=yes
+
+# Child process debugging
+--trace-children=yes
+
+# Time stamp logging
+--time-stamp=yes
+
+# Only show errors
+--quiet
+
+# Verbose output
+-v
+</code></pre>
+<h2>Error Types and Meanings</h2>
+<h3>Memory Errors</h3>
+<pre><code class="language-text">Invalid read/write
+Uninitialized value
+Memory leak
+Invalid free
+Mismatched free/delete
+Double free
+Overlap in memcpy
+</code></pre>
+<h3>Thread Errors</h3>
+<pre><code class="language-text">Data race
+Lock order violation
+Thread exit with locked mutex
+Invalid mutex operation
+</code></pre>
+<h2>Suppression File Format</h2>
+<pre><code class="language-text">{
+   &lt;suppression_name&gt;
+   &lt;tool_name&gt;:MemCheck
+   ...
+   fun:function_name
+   obj:object_file
+}
+</code></pre>
+<h2>Best Practices</h2>
+<ol>
+<li>Always use <code>--leak-check=full</code></li>
+<li>Enable <code>--track-origins</code> for uninitialized values</li>
+<li>Create suppressions for known issues</li>
+<li>Use <code>--gen-suppressions=all</code> to generate suppressions</li>
+<li>Run with optimized binaries for accurate profiling</li>
+<li>Use <code>--xml</code> output for automated analysis</li>
+<li>Regular profiling during development</li>
+</ol>
+<h2>Performance Tips</h2>
+<ol>
+<li>Use <code>--num-callers</code> to reduce stack trace size</li>
+<li>Disable expensive checks when not needed</li>
+<li>Use selective instrumentation</li>
+<li>Profile specific functions with <code>--toggle-collect</code></li>
+<li>Use <code>--max-stackframe</code> for large stack frames</li>
+<li>Optimize suppression files</li>
+<li>Use <code>--time-stamp</code> for long-running programs</li>
+</ol>
+<h2>Debugging Examples</h2>
+<pre><code class="language-bash"># Basic memory check
+valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all ./program
+
+# Profile with callgraph
+valgrind --tool=callgrind --dump-instr=yes --collect-jumps=yes ./program
+
+# Thread check with history
+valgrind --tool=helgrind --history-level=full ./program
+
+# Heap profile
+valgrind --tool=massif --heap=yes --detailed-freq=10 ./program
+
+# Cache analysis
+valgrind --tool=cachegrind --branch-sim=yes ./program
+</code></pre>
+}
+    </main>
+    <footer>
+        <p>Generated with markdown-site-gen</p>
+    </footer>
+</body>
+</html>
